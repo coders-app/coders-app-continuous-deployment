@@ -23,10 +23,14 @@ server.on("request", (req, res) => {
         return;
     }
 
-    const deploy = spawn(`/www/${deployScript}`, [], {
-      detached: true,
-      stdio: "inherit",
-    });
+    const deploy = spawn(
+      new URL(`../scripts/${deployScript}`, import.meta.url).toString(),
+      [],
+      {
+        detached: true,
+        stdio: "inherit",
+      }
+    );
     deploy.unref();
 
     respondWithOk(res);
