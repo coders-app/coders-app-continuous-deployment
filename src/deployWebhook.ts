@@ -24,7 +24,7 @@ server.on("request", (req, res) => {
     }
 
     const deploy = spawn(
-      new URL(`../scripts/${deployScript}`, import.meta.url).toString(),
+      new URL(`../scripts/${deployScript}`, import.meta.url).pathname,
       [],
       {
         detached: true,
