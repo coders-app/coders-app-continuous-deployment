@@ -15,6 +15,9 @@ server.on("request", (req, res) => {
       case "/deploy/identity-server":
         deployScript = "identity-server.deploy.sh";
         break;
+      case "/deploy/coder-cat":
+        deployScript = "coder-cat.deploy.sh";
+        break;
       default:
         respondWithNotFoundError(res);
         return;
